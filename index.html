@@ -53,7 +53,12 @@
         } else if (operator === "*") {
             return result = multiply(num1, num2);
         } else if (operator === "/") {
-            return result = divide(num1, num2);
+            if (!Number.isInteger(divide(num1, num2))) {
+                let n = divide(num1, num2).toFixed(6);
+                return result = parseFloat(n);
+            } else {
+                return result = divide(num1, num2);
+            }
         };
     };
 
