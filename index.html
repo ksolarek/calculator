@@ -12,6 +12,7 @@
         <div id="display"></div>
         <button id="one-btn">1</button>
         <button id="two-btn">2</button>
+        <button id="point-btn">.</button>
         <button id="plus-btn">+</button>
         <button id="minus-btn">-</button>
         <button id="times-btn">x</button>
@@ -47,23 +48,24 @@
 
     function operate() {
         if (operator === "+") {
-            return result = add(num1, num2);
+            return result = add(+num1, +num2);
         } else if (operator === "-") {
-            return result = subtract(num1, num2);
+            return result = subtract(+num1, +num2);
         } else if (operator === "*") {
-            return result = multiply(num1, num2);
+            return result = multiply(+num1, +num2);
         } else if (operator === "/") {
-            if (!Number.isInteger(divide(num1, num2))) {
-                let n = divide(num1, num2).toFixed(6);
+            if (!Number.isInteger(divide(+num1, +num2))) {
+                let n = divide(+num1, +num2).toFixed(6);
                 return result = parseFloat(n);
             } else {
-                return result = divide(num1, num2);
+                return result = divide(+num1, +num2);
             }
         };
     };
 
     const calculatorContainer = document.querySelector("#calculator-container");
     const display = document.querySelector("#display");
+    const pointBtn = document.querySelector("#point-btn");
     const oneBtn = document.querySelector("#one-btn");
     const twoBtn = document.querySelector("#two-btn");
     const plusBtn = document.querySelector("#plus-btn");
@@ -74,28 +76,26 @@
 
     display.textContent = "0";
 
-    //calculatorContainer.addEventListener("click", function() {
-    //    if (!(num1 === "") && num2 === "") {
-    //        display.textContent = num1;
-    //    } else
-   //});
+    //pointBtn.addEventListener("click", function() {
+
+    //});
 
     oneBtn.addEventListener("click", function() {
-        if (num1 === "") {
-            num1 = 1;
+        if (operator === "") {
+            num1 += 1;
             display.textContent = num1;
         } else {
-            num2 = 1;
+            num2 += 1;
             display.textContent = num2;
         };
     });
 
     twoBtn.addEventListener("click", function() {
-        if (num1 === "") {
-            num1 = 2;
+        if (operator === "") {
+            num1 += 2;
             display.textContent = num1;
         } else {
-            num2 = 2
+            num2 += 2
             display.textContent = num2;
         };
     });
