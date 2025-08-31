@@ -8,15 +8,16 @@
 
 
 <body>
-
-    <button id="one-btn">1</button>
-    <button id="two-btn">2</button>
-    <button id="plus-btn">+</button>
-    <button id="minus-btn">-</button>
-    <button id="times-btn">x</button>
-    <button id="dividedBy-btn">÷</button>
-    <button id="equals-btn">=</button>
-    
+    <div id="calculator-container">
+        <div id="display"></div>
+        <button id="one-btn">1</button>
+        <button id="two-btn">2</button>
+        <button id="plus-btn">+</button>
+        <button id="minus-btn">-</button>
+        <button id="times-btn">x</button>
+        <button id="dividedBy-btn">÷</button>
+        <button id="equals-btn">=</button>
+    </div>
 </body>
 
 
@@ -56,6 +57,8 @@
         };
     };
 
+    const calculatorContainer = document.querySelector("#calculator-container");
+    const display = document.querySelector("#display");
     const oneBtn = document.querySelector("#one-btn");
     const twoBtn = document.querySelector("#two-btn");
     const plusBtn = document.querySelector("#plus-btn");
@@ -64,23 +67,31 @@
     const dividedByBtn = document.querySelector("#dividedBy-btn");
     const equalsBtn = document.querySelector("#equals-btn");
 
+    display.textContent = "0";
+
+    //calculatorContainer.addEventListener("click", function() {
+    //    if (!(num1 === "") && num2 === "") {
+    //        display.textContent = num1;
+    //    } else
+   //});
+
     oneBtn.addEventListener("click", function() {
         if (num1 === "") {
             num1 = 1;
-            console.log(num1);
+            display.textContent = num1;
         } else {
             num2 = 1;
-            console.log(num2);
+            display.textContent = num2;
         };
     });
 
     twoBtn.addEventListener("click", function() {
         if (num1 === "") {
             num1 = 2;
-            console.log(num1);
+            display.textContent = num1;
         } else {
             num2 = 2
-            console.log(num2);
+            display.textContent = num2;
         };
     });
 
@@ -91,7 +102,7 @@
         } else {
             operate();
             operator = "+";
-            console.log(result);
+            display.textContent = result;
             num1 = result;
             num2 = "";
         };
@@ -104,7 +115,7 @@
         } else {
             operate();
             operator = "-";
-            console.log(result);
+            display.textContent = result;
             num1 = result;
             num2 = "";
         };
@@ -117,7 +128,7 @@
         } else {
             operate();
             operator = "*";
-            console.log(result);
+            display.textContent = result;
             num1 = result;
             num2 = "";
         };
@@ -130,7 +141,7 @@
         } else {
             operate();
             operator = "/";
-            console.log(result);
+            display.textContent = result;
             num1 = result;
             num2 = "";
         };
@@ -138,7 +149,7 @@
 
     equalsBtn.addEventListener("click", function() {
         operate();
-        console.log(result);
+        display.textContent = result;
     });
 
 
