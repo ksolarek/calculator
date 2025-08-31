@@ -10,14 +10,34 @@
 <body>
     <div id="calculator-container">
         <div id="display"></div>
-        <button id="one-btn">1</button>
-        <button id="two-btn">2</button>
-        <button id="point-btn">.</button>
-        <button id="plus-btn">+</button>
-        <button id="minus-btn">-</button>
-        <button id="times-btn">x</button>
-        <button id="dividedBy-btn">÷</button>
-        <button id="equals-btn">=</button>
+        <div class="numbers">
+            <div class="numbers">
+                <button id="seven-btn">7</button>
+                <button id="eight-btn">8</button>
+                <button id="nine-btn">9</button>
+            </div>
+            <div class="numbers">
+                <button id="four-btn">4</button>
+                <button id="five-btn">5</button>
+                <button id="six-btn">6</button>
+            </div>
+            <div class="numbers">
+                <button id="one-btn">1</button>
+                <button id="two-btn">2</button>
+                <button id="three-btn">3</button>
+            </div>
+            <div class="numbers"></div>
+                <button id="zero-btn">0</button>
+                <button id="point-btn">.</button>
+            </div>
+        </div>
+            <div class="operators"></div>
+            <button id="dividedBy-btn">÷</button>
+            <button id="times-btn">x</button>
+            <button id="minus-btn">-</button>
+            <button id="plus-btn">+</button>
+            <button id="equals-btn">=</button>
+        </div>
     </div>
 </body>
 
@@ -66,8 +86,16 @@
     const calculatorContainer = document.querySelector("#calculator-container");
     const display = document.querySelector("#display");
     const pointBtn = document.querySelector("#point-btn");
+    const zeroBtn = document.querySelector("#zero-btn");
     const oneBtn = document.querySelector("#one-btn");
     const twoBtn = document.querySelector("#two-btn");
+    const threeBtn = document.querySelector("#three-btn");
+    const fourBtn = document.querySelector("#four-btn");
+    const fiveBtn = document.querySelector("#five-btn");
+    const sixBtn = document.querySelector("#six-btn");
+    const sevenBtn = document.querySelector("#seven-btn");
+    const eightBtn = document.querySelector("#eight-btn");
+    const nineBtn = document.querySelector("#nine-btn");
     const plusBtn = document.querySelector("#plus-btn");
     const minusBtn = document.querySelector("#minus-btn");
     const timesBtn = document.querySelector("#times-btn");
@@ -76,9 +104,25 @@
 
     display.textContent = "0";
 
-    //pointBtn.addEventListener("click", function() {
+    pointBtn.addEventListener("click", function() {
+        if (operator === "") {
+            num1 += ".";
+            display.textContent = num1;
+        } else {
+            num2 += ".";
+            display.textContent = num2;
+        };
+    });
 
-    //});
+    zeroBtn.addEventListener("click", function() {
+        if (operator === "") {
+            num1 += 0;
+            display.textContent = num1;
+        } else {
+            num2 += 0;
+            display.textContent = num2;
+        };
+    });
 
     oneBtn.addEventListener("click", function() {
         if (operator === "") {
@@ -95,7 +139,77 @@
             num1 += 2;
             display.textContent = num1;
         } else {
-            num2 += 2
+            num2 += 2;
+            display.textContent = num2;
+        };
+    });
+
+    threeBtn.addEventListener("click", function() {
+        if (operator === "") {
+            num1 += 3;
+            display.textContent = num1;
+        } else {
+            num2 += 3;
+            display.textContent = num2;
+        };
+    });
+
+    fourBtn.addEventListener("click", function() {
+        if (operator === "") {
+            num1 += 4;
+            display.textContent = num1;
+        } else {
+            num2 += 4;
+            display.textContent = num2;
+        };
+    });
+
+    fiveBtn.addEventListener("click", function() {
+        if (operator === "") {
+            num1 += 5;
+            display.textContent = num1;
+        } else {
+            num2 += 5;
+            display.textContent = num2;
+        };
+    });
+
+    sixBtn.addEventListener("click", function() {
+        if (operator === "") {
+            num1 += 6;
+            display.textContent = num1;
+        } else {
+            num2 += 6;
+            display.textContent = num2;
+        };
+    });
+
+    sevenBtn.addEventListener("click", function() {
+        if (operator === "") {
+            num1 += 7;
+            display.textContent = num1;
+        } else {
+            num2 += 7;
+            display.textContent = num2;
+        };
+    });
+
+    eightBtn.addEventListener("click", function() {
+        if (operator === "") {
+            num1 += 8;
+            display.textContent = num1;
+        } else {
+            num2 += 8;
+            display.textContent = num2;
+        };
+    });
+
+    nineBtn.addEventListener("click", function() {
+        if (operator === "") {
+            num1 += 9;
+            display.textContent = num1;
+        } else {
+            num2 += 9;
             display.textContent = num2;
         };
     });
