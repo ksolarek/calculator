@@ -5,43 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
+
 <body>
+
+    <button id="one-btn">1</button>
+    <button id="two-btn">2</button>
+    <button id="plus-btn">+</button>
+    <button id="equals-btn">=</button>
     
 </body>
 
+
+
 <script>
 
-function add(a, b) {
-    return a + b;
-};
-
-function subtract(a, b) {
-    return a - b;
-};
-
-function multiply(a, b) {
-    return a * b;
-};
-
-function divide(a, b) {
-    return a / b;
-};
-
-let num1 = 0;
-let num2 = 0;
-let operator = "";
-
-function operate(a, b, operator) {
-    if (operator === "+") {
-        return add(a, b);
-    } else if (operator === "-") {
-        return subtract(a, b);
-    } else if (operator === "*") {
-        return multiply(a, b);
-    } else if (operator === "/") {
-        return divide(a, b);
+    function add(a, b) {
+        return a + b;
     };
-};
+
+    function subtract(a, b) {
+        return a - b;
+    };
+
+    function multiply(a, b) {
+        return a * b;
+    };
+
+    function divide(a, b) {
+        return a / b;
+    };
+
+    let num1 ="";
+    let num2 = "";
+    let operator = "";
+    let result = "";
+
+    function operate() {
+        if (operator === "+") {
+            return result = add(num1, num2);
+        } else if (operator === "-") {
+            return result = subtract(num1, num2);
+        } else if (operator === "*") {
+            return result = multiply(num1, num2);
+        } else if (operator === "/") {
+            return result = divide(num1, num2);
+        };
+    };
+
+    const oneBtn = document.querySelector("#one-btn");
+    const twoBtn = document.querySelector("#two-btn");
+    const plusBtn = document.querySelector("#plus-btn");
+    const equalsBtn = document.querySelector("#equals-btn");
+
+    oneBtn.addEventListener("click", function() {
+        if (num1 === "") {
+            num1 = 1;
+            console.log(num1);
+        } else {
+            num2 = 1;
+            console.log(num2);
+        };
+    });
+
+    twoBtn.addEventListener("click", function() {
+        if (num1 === "") {
+            num1 = 2;
+            console.log(num1);
+        } else {
+            num2 = 2
+            console.log(num2);
+        };
+    });
+
+    plusBtn.addEventListener("click", function() {
+        if (operator === "") {
+            operator = "+";
+            console.log(operator);
+        } else {
+            operator = "+";
+            operate();
+            console.log(result);
+            num1 = result;
+            num2 = "";
+        };
+    });
+
+    equalsBtn.addEventListener("click", function() {
+        operate();
+        console.log(result);
+    });
 
 
 </script>
