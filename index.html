@@ -12,6 +12,9 @@
     <button id="one-btn">1</button>
     <button id="two-btn">2</button>
     <button id="plus-btn">+</button>
+    <button id="minus-btn">-</button>
+    <button id="times-btn">x</button>
+    <button id="dividedBy-btn">÷</button>
     <button id="equals-btn">=</button>
     
 </body>
@@ -56,6 +59,9 @@
     const oneBtn = document.querySelector("#one-btn");
     const twoBtn = document.querySelector("#two-btn");
     const plusBtn = document.querySelector("#plus-btn");
+    const minusBtn = document.querySelector("#minus-btn");
+    const timesBtn = document.querySelector("#times-btn");
+    const dividedByBtn = document.querySelector("#dividedBy-btn");
     const equalsBtn = document.querySelector("#equals-btn");
 
     oneBtn.addEventListener("click", function() {
@@ -83,8 +89,47 @@
             operator = "+";
             console.log(operator);
         } else {
-            operator = "+";
             operate();
+            operator = "+";
+            console.log(result);
+            num1 = result;
+            num2 = "";
+        };
+    });
+
+    minusBtn.addEventListener("click", function() {
+        if (operator === "") {
+            operator = "-";
+            console.log(operator);
+        } else {
+            operate();
+            operator = "-";
+            console.log(result);
+            num1 = result;
+            num2 = "";
+        };
+    });
+
+    timesBtn.addEventListener("click", function() {
+        if (operator === "") {
+            operator = "*";
+            console.log(operator);
+        } else {
+            operate();
+            operator = "*";
+            console.log(result);
+            num1 = result;
+            num2 = "";
+        };
+    });
+
+    dividedByBtn.addEventListener("click", function() {
+        if (operator === "") {
+            operator = "/";
+            console.log(operator);
+        } else {
+            operate();
+            operator = "/";
             console.log(result);
             num1 = result;
             num2 = "";
