@@ -114,6 +114,8 @@
         num1 ="";
         num2 = "";
         operator = "";
+        lastOperator = "";
+        lastNum2 = "";
         display.textContent = "0";
     });
 
@@ -127,11 +129,15 @@
         } else {
             display.textContent = "0";
         };
+        lastOperator = "";
+        lastNum2 = "";
     });
  
     pointBtn.addEventListener("click", function() {
         if (operator === "") {
             num1 += ".";
+            lastOperator = "";
+            lastNum2 = "";
             display.textContent = num1;
         } else {
             num2 += ".";
@@ -152,6 +158,8 @@
     oneBtn.addEventListener("click", function() {
         if (operator === "") {
             num1 += 1;
+            lastOperator = "";
+            lastNum2 = "";
             display.textContent = num1;
         } else {
             num2 += 1;
@@ -162,6 +170,8 @@
     twoBtn.addEventListener("click", function() {
         if (operator === "") {
             num1 += 2;
+            lastOperator = "";
+            lastNum2 = "";
             display.textContent = num1;
         } else {
             num2 += 2;
@@ -172,6 +182,8 @@
     threeBtn.addEventListener("click", function() {
         if (operator === "") {
             num1 += 3;
+            lastOperator = "";
+            lastNum2 = "";
             display.textContent = num1;
         } else {
             num2 += 3;
@@ -182,6 +194,8 @@
     fourBtn.addEventListener("click", function() {
         if (operator === "") {
             num1 += 4;
+            lastOperator = "";
+            lastNum2 = "";
             display.textContent = num1;
         } else {
             num2 += 4;
@@ -192,6 +206,8 @@
     fiveBtn.addEventListener("click", function() {
         if (operator === "") {
             num1 += 5;
+            lastOperator = "";
+            lastNum2 = "";
             display.textContent = num1;
         } else {
             num2 += 5;
@@ -202,6 +218,8 @@
     sixBtn.addEventListener("click", function() {
         if (operator === "") {
             num1 += 6;
+            lastOperator = "";
+            lastNum2 = "";
             display.textContent = num1;
         } else {
             num2 += 6;
@@ -212,6 +230,8 @@
     sevenBtn.addEventListener("click", function() {
         if (operator === "") {
             num1 += 7;
+            lastOperator = "";
+            lastNum2 = "";
             display.textContent = num1;
         } else {
             num2 += 7;
@@ -222,6 +242,8 @@
     eightBtn.addEventListener("click", function() {
         if (operator === "") {
             num1 += 8;
+            lastOperator = "";
+            lastNum2 = "";
             display.textContent = num1;
         } else {
             num2 += 8;
@@ -232,6 +254,8 @@
     nineBtn.addEventListener("click", function() {
         if (operator === "") {
             num1 += 9;
+            lastOperator = "";
+            lastNum2 = "";
             display.textContent = num1;
         } else {
             num2 += 9;
@@ -287,9 +311,23 @@
         };
     });
 
+    let lastOperator = "";
+    let lastNum2 = "";
+
     equalsBtn.addEventListener("click", function() {
+        if (num2 === "") {
+            if (lastOperator !== "") {
+                num1 = result;
+                num2 = lastNum2;
+                operator = lastOperator;
+            } else {
+             return;
+            };
+        };
         operate();
         display.textContent = result;
+        lastNum2 = num2;
+        lastOperator = operator;
         num1 = "";
         num2 = "";
         operator = "";
