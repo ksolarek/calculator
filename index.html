@@ -134,14 +134,18 @@
     });
  
     pointBtn.addEventListener("click", function() {
-        if (operator === "") {
-            num1 += ".";
-            lastOperator = "";
-            lastNum2 = "";
-            display.textContent = num1;
+        if (display.textContent.includes(".")) {
+            return;
         } else {
-            num2 += ".";
-            display.textContent = num2;
+            if (operator === "") {
+                num1 += ".";
+                lastOperator = "";
+                lastNum2 = "";
+                display.textContent = num1;
+            } else {
+                num2 += ".";
+                display.textContent = num2;
+            };
         };
     });
 
