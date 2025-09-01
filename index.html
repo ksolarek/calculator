@@ -114,6 +114,16 @@
 
     display.textContent = "0";
 
+    // tu zaczynam kombinowac
+
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "1") {
+            pressNumber("1");
+        };
+    });
+
+    // tu koncze
+
     acBtn.addEventListener("click", function() {
         num1 ="";
         num2 = "";
@@ -153,171 +163,57 @@
         };
     });
 
-    zeroBtn.addEventListener("click", function() {
+    function pressNumber(n) {
         if (operator === "") {
-            num1 += 0;
-            display.textContent = num1;
-        } else {
-            num2 += 0;
-            display.textContent = num2;
-        };
-    });
-
-    oneBtn.addEventListener("click", function() {
-        if (operator === "") {
-            num1 += 1;
+            num1 += n;
             lastOperator = "";
             lastNum2 = "";
             display.textContent = num1;
         } else {
-            num2 += 1;
+            num2 += n;
             display.textContent = num2;
         };
-    });
+    };
 
-    twoBtn.addEventListener("click", function() {
-        if (operator === "") {
-            num1 += 2;
-            lastOperator = "";
-            lastNum2 = "";
-            display.textContent = num1;
-        } else {
-            num2 += 2;
-            display.textContent = num2;
-        };
-    });
+    zeroBtn.addEventListener("click", () => pressNumber("0"));
 
-    threeBtn.addEventListener("click", function() {
-        if (operator === "") {
-            num1 += 3;
-            lastOperator = "";
-            lastNum2 = "";
-            display.textContent = num1;
-        } else {
-            num2 += 3;
-            display.textContent = num2;
-        };
-    });
+    oneBtn.addEventListener("click", () => pressNumber("1"));
 
-    fourBtn.addEventListener("click", function() {
-        if (operator === "") {
-            num1 += 4;
-            lastOperator = "";
-            lastNum2 = "";
-            display.textContent = num1;
-        } else {
-            num2 += 4;
-            display.textContent = num2;
-        };
-    });
+    twoBtn.addEventListener("click", () => pressNumber("2"));
 
-    fiveBtn.addEventListener("click", function() {
-        if (operator === "") {
-            num1 += 5;
-            lastOperator = "";
-            lastNum2 = "";
-            display.textContent = num1;
-        } else {
-            num2 += 5;
-            display.textContent = num2;
-        };
-    });
+    threeBtn.addEventListener("click", () => pressNumber("3"));
 
-    sixBtn.addEventListener("click", function() {
-        if (operator === "") {
-            num1 += 6;
-            lastOperator = "";
-            lastNum2 = "";
-            display.textContent = num1;
-        } else {
-            num2 += 6;
-            display.textContent = num2;
-        };
-    });
+    fourBtn.addEventListener("click", () => pressNumber("4"));
 
-    sevenBtn.addEventListener("click", function() {
-        if (operator === "") {
-            num1 += 7;
-            lastOperator = "";
-            lastNum2 = "";
-            display.textContent = num1;
-        } else {
-            num2 += 7;
-            display.textContent = num2;
-        };
-    });
+    fiveBtn.addEventListener("click", () => pressNumber("5"));
 
-    eightBtn.addEventListener("click", function() {
-        if (operator === "") {
-            num1 += 8;
-            lastOperator = "";
-            lastNum2 = "";
-            display.textContent = num1;
-        } else {
-            num2 += 8;
-            display.textContent = num2;
-        };
-    });
+    sixBtn.addEventListener("click", () => pressNumber("6"));
 
-    nineBtn.addEventListener("click", function() {
-        if (operator === "") {
-            num1 += 9;
-            lastOperator = "";
-            lastNum2 = "";
-            display.textContent = num1;
-        } else {
-            num2 += 9;
-            display.textContent = num2;
-        };
-    });
+    sevenBtn.addEventListener("click", () => pressNumber("7"));
 
-    plusBtn.addEventListener("click", function() {
+    eightBtn.addEventListener("click", () => pressNumber("8"));
+
+    nineBtn.addEventListener("click", () => pressNumber("9"));
+
+    function pressOperator(op) {
         if (operator === "") {
-            operator = "+";
+            operator = op;
         } else {
             operate();
-            operator = "+";
+            operator = op;
             display.textContent = result;
             num1 = result;
             num2 = "";
         };
-    });
+    };
 
-    minusBtn.addEventListener("click", function() {
-        if (operator === "") {
-            operator = "-";
-        } else {
-            operate();
-            operator = "-";
-            display.textContent = result;
-            num1 = result;
-            num2 = "";
-        };
-    });
+    plusBtn.addEventListener("click", () => pressOperator("+"));
 
-    timesBtn.addEventListener("click", function() {
-        if (operator === "") {
-            operator = "*";
-        } else {
-            operate();
-            operator = "*";
-            display.textContent = result;
-            num1 = result;
-            num2 = "";
-        };
-    });
+    minusBtn.addEventListener("click", () => pressOperator("-"));
 
-    dividedByBtn.addEventListener("click", function() {
-        if (operator === "") {
-            operator = "/";
-        } else {
-            operate();
-            operator = "/";
-            display.textContent = result;
-            num1 = result;
-            num2 = "";
-        };
-    });
+    timesBtn.addEventListener("click", () => pressOperator("*"));
+
+    dividedByBtn.addEventListener("click", () => pressOperator("/"));
 
     let lastOperator = "";
     let lastNum2 = "";
@@ -336,7 +232,7 @@
         display.textContent = result;
         lastNum2 = num2;
         lastOperator = operator;
-        num1 = "";
+        num1 = result;
         num2 = "";
         operator = "";
     });
