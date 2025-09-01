@@ -10,7 +10,11 @@
 <body>
     <div id="calculator-container">
         <div id="display"></div>
-        <div class="numbers">
+        <div class="buttons">
+            <div class="function-buttons">
+                <button id="ac-btn">AC</button>
+                <button id="c-btn">C</button>
+            </div>
             <div class="numbers">
                 <button id="seven-btn">7</button>
                 <button id="eight-btn">8</button>
@@ -29,6 +33,7 @@
             <div class="numbers"></div>
                 <button id="zero-btn">0</button>
                 <button id="point-btn">.</button>
+                <button id="equals-btn">=</button>
             </div>
         </div>
             <div class="operators"></div>
@@ -36,7 +41,6 @@
             <button id="times-btn">x</button>
             <button id="minus-btn">-</button>
             <button id="plus-btn">+</button>
-            <button id="equals-btn">=</button>
         </div>
     </div>
 </body>
@@ -85,6 +89,8 @@
 
     const calculatorContainer = document.querySelector("#calculator-container");
     const display = document.querySelector("#display");
+    const acBtn = document.querySelector("#ac-btn");
+    const cBtn = document.querySelector("#c-btn");
     const pointBtn = document.querySelector("#point-btn");
     const zeroBtn = document.querySelector("#zero-btn");
     const oneBtn = document.querySelector("#one-btn");
@@ -104,6 +110,25 @@
 
     display.textContent = "0";
 
+    acBtn.addEventListener("click", function() {
+        num1 ="";
+        num2 = "";
+        operator = "";
+        display.textContent = "0";
+    });
+
+    cBtn.addEventListener("click", function() {
+        if (operator === "") {
+            num1 = "";
+            display.textContent = "0";
+        } else if (num2 !== "") {
+            num2 = "";
+            display.textContent = "0";
+        } else {
+            display.textContent = "0";
+        };
+    });
+ 
     pointBtn.addEventListener("click", function() {
         if (operator === "") {
             num1 += ".";
@@ -217,7 +242,6 @@
     plusBtn.addEventListener("click", function() {
         if (operator === "") {
             operator = "+";
-            console.log(operator);
         } else {
             operate();
             operator = "+";
@@ -230,7 +254,6 @@
     minusBtn.addEventListener("click", function() {
         if (operator === "") {
             operator = "-";
-            console.log(operator);
         } else {
             operate();
             operator = "-";
@@ -243,7 +266,6 @@
     timesBtn.addEventListener("click", function() {
         if (operator === "") {
             operator = "*";
-            console.log(operator);
         } else {
             operate();
             operator = "*";
@@ -256,7 +278,6 @@
     dividedByBtn.addEventListener("click", function() {
         if (operator === "") {
             operator = "/";
-            console.log(operator);
         } else {
             operate();
             operator = "/";
@@ -269,6 +290,9 @@
     equalsBtn.addEventListener("click", function() {
         operate();
         display.textContent = result;
+        num1 = "";
+        num2 = "";
+        operator = "";
     });
 
 
