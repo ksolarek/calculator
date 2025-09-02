@@ -117,23 +117,110 @@
     // tu zaczynam kombinowac
 
     document.addEventListener("keydown", function(e) {
-        if (e.key === "1") {
-            pressNumber("1");
+        switch(e.key) {
+            case "0":
+                pressNumber("0");
+                break;
+            case "1": 
+                pressNumber("1");
+                break;
+            case "2": 
+                pressNumber("2");
+                break;
+            case "3":
+                pressNumber("3");
+                break;
+            case "4":
+                pressNumber("4");
+                break;
+            case "5":
+                pressNumber("5");
+                break;
+            case "6":
+                pressNumber("6");
+                break;
+            case "7":
+                pressNumber("7");
+                break;
+            case "8":
+                pressNumber("8");
+                break;
+            case "9":
+                pressNumber("9");
+                break;
+            case ".":
+                pressPoint();
+                break;
+            case "c":
+                pressC();
+                break;
+            case "Backspace":
+                pressC();
+                break;
+            case "Delete":
+                pressC();
+                break;
+            case "Escape": 
+                pressAc();
+                break;
+            case "+":
+                pressOperator("+");
+                break;
+            case "-":
+                pressOperator("-");
+                break;
+            case "*":
+                pressOperator("*");
+                break;
+            case "/":
+                pressOperator("/");
+                break;
+            case "*":
+                pressOperator("*");
+                break;
+            case "Enter":
+                pressEquals();
+                break;
+            case "=":
+                pressEquals();
+                break;
         };
     });
 
+    document.addEventListener("keydown", function(e) {
+        switch(e.code) {
+            case "NumpadAdd":
+                pressOperator("+");
+                break;
+            case "NumpadSubtract":
+                pressOperator("-");
+                break;
+            case "NumpadMultiply":
+                pressOperator("*");
+                break;
+            case "NumpadDivide":
+                pressOperator("/");
+                break;
+        }
+    });
+
+
     // tu koncze
 
-    acBtn.addEventListener("click", function() {
+    acBtn.addEventListener("click", () => pressAc());
+
+    cBtn.addEventListener("click", () => pressC());
+
+    function pressAc() {
         num1 ="";
         num2 = "";
         operator = "";
         lastOperator = "";
         lastNum2 = "";
         display.textContent = "0";
-    });
-
-    cBtn.addEventListener("click", function() {
+    };
+ 
+    function pressC() {
         if (operator === "") {
             num1 = "";
             display.textContent = "0";
@@ -145,9 +232,9 @@
         };
         lastOperator = "";
         lastNum2 = "";
-    });
- 
-    pointBtn.addEventListener("click", function() {
+    };
+
+    function pressPoint() {
         if (display.textContent.includes(".")) {
             return;
         } else {
@@ -161,7 +248,7 @@
                 display.textContent = num2;
             };
         };
-    });
+    };
 
     function pressNumber(n) {
         if (operator === "") {
@@ -174,6 +261,8 @@
             display.textContent = num2;
         };
     };
+
+    pointBtn.addEventListener("click", () => pressPoint());
 
     zeroBtn.addEventListener("click", () => pressNumber("0"));
 
@@ -207,18 +296,7 @@
         };
     };
 
-    plusBtn.addEventListener("click", () => pressOperator("+"));
-
-    minusBtn.addEventListener("click", () => pressOperator("-"));
-
-    timesBtn.addEventListener("click", () => pressOperator("*"));
-
-    dividedByBtn.addEventListener("click", () => pressOperator("/"));
-
-    let lastOperator = "";
-    let lastNum2 = "";
-
-    equalsBtn.addEventListener("click", function() {
+    function pressEquals() {
         if (num2 === "") {
             if (lastOperator !== "") {
                 num1 = result;
@@ -235,7 +313,20 @@
         num1 = result;
         num2 = "";
         operator = "";
-    });
+    };
+
+    plusBtn.addEventListener("click", () => pressOperator("+"));
+
+    minusBtn.addEventListener("click", () => pressOperator("-"));
+
+    timesBtn.addEventListener("click", () => pressOperator("*"));
+
+    dividedByBtn.addEventListener("click", () => pressOperator("/"));
+
+    let lastOperator = "";
+    let lastNum2 = "";
+
+    equalsBtn.addEventListener("click", () => pressEquals());
 
 
 </script>
