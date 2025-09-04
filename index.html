@@ -243,8 +243,6 @@
 
     display.textContent = "0";
 
-    // tu zaczynam kombinowac
-
     document.addEventListener("keydown", function(e) {
         switch(e.key) {
             case "0":
@@ -300,9 +298,6 @@
         }
     });
 
-
-    // tu koncze
-
     acBtn.addEventListener("click", () => pressAc());
 
     cBtn.addEventListener("click", () => pressC());
@@ -348,12 +343,14 @@
 
     function pressNumber(n) {
         if (operator === "") {
+            if (num1.length >= 10) return;
             num1 += n;
             lastOperator = "";
             lastNum2 = "";
             display.textContent = num1;
         } else {
             num2 += n;
+            if (num2.length >= 10) return;
             display.textContent = num2;
         };
     };
