@@ -39,6 +39,7 @@
             min-height: 60px;
             text-align: end;
             padding: 18px 25px;
+            overflow-y: auto;
         }
 
         #columns {
@@ -201,6 +202,7 @@
     let num2 = "";
     let operator = "";
     let result = "";
+    let isNewOperation = false;
 
     function operate() {
         if (operator === "+") {
@@ -345,18 +347,25 @@
     };
 
     function pressNumber(n) {
-        if (operator === "") {
-            if (num1.length >= 10) return;
-            num1 += n;
-            lastOperator = "";
-            lastNum2 = "";
-            display.textContent = num1;
-        } else {
-            num2 += n;
-            if (num2.length >= 10) return;
-            display.textContent = num2;
+            if (operator === "") {
+                if (num1.length >= 10) return;
+                else if (isNewOperation) {
+                    num1 = n;
+                    display.textContent = num1;
+                    isNewOperation = false;
+                } else {
+                    num1 += n;
+                    lastOperator = "";
+                    lastNum2 = "";
+                    display.textContent = num1;
+                };
+            } else {
+                num2 += n;
+                if (num2.length >= 10) return;
+                display.textContent = num2;
+            };
         };
-    };
+
 
     pointBtn.addEventListener("click", () => pressPoint());
 
@@ -398,6 +407,7 @@
                 num1 = result;
                 num2 = lastNum2;
                 operator = lastOperator;
+                isNewOperation = true;
             } else {
              return;
             };
@@ -409,6 +419,7 @@
         num1 = result;
         num2 = "";
         operator = "";
+        isNewOperation = true;
     };
 
     plusBtn.addEventListener("click", () => pressOperator("+"));
