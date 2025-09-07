@@ -392,6 +392,8 @@
     function pressOperator(op) {
         if (operator === "") {
             operator = op;
+        } else if (num2 === "") {
+            operator = op;
         } else {
             operate();
             operator = op;
